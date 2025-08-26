@@ -1,13 +1,20 @@
-# 
-E-Commerce-Food-Industry-Website
+# E-Commerce Food Industry Website
 
-Install & Run Command serial wise in terminal before run or start project :- 
+## Installation & Run
 
-Node Install
-npm Install
+Run the following commands in your terminal **in order** before starting the project:
+
+```bash
+# Install Node.js (skip if already installed)
+node -v
+
+# Initialize project (creates package.json)
 npm init -y
-npm install --save express
-npm install ejs --save
-npm install --save request
 
-These are neccessary packeges for the project 
+# Install dependencies
+npm install express --save
+npm install ejs --save
+npm install request --save
+
+After installation, start the project with:
+node index.js
