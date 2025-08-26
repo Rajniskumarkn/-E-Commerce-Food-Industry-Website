@@ -7,14 +7,15 @@ Run the following commands in your terminal **in order** before starting the pro
 ```bash
 # Install Node.js (skip if already installed)
 node -v
-
 # Initialize project (creates package.json)
 npm init -y
-
+```
+```bash
 # Install dependencies
 npm install express --save
 npm install ejs --save
 npm install request --save
-
+```
 After installation, start the project with:
+```bash
 node index.js
