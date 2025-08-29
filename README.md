@@ -15,6 +15,9 @@ npm init -y
 npm install express --save
 npm install ejs --save
 npm install request --save
+npm install body-parser
+npm install mysql
+npm install express-session
 ```
 After installation, start the project with:
 ```bash
