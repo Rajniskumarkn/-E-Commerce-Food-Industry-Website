@@ -55,13 +55,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="/">Home </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="menu.html">Menu <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="menu">Menu <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about">About</a>
               </li>
             </ul>
             <div class="user_option">
@@ -204,13 +204,20 @@
             </td>
 
             <td>
-              <form>
-                 <input type="submit" value="-" class="edit-btn " name="decrease_product_quantity_btn">
-      
-                <input type="text" name="quantity" value="1" readonly="">
 
-                <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
-              </form>
+                
+              <form method="post" action="/edit_product_quantity">
+                    <input type="hidden" value="<%= item.id %>" name="id">
+
+                    <input type="submit" value="-" class="edit-btn" name="decrease_product_quantity_btn">
+
+                    <input type="text" value="<%= item.quantity %>" readonly>
+
+                    <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
+                  </form>
+
+
+
             </td>
 
             <td>
@@ -249,7 +256,7 @@
 
     <div class="checkout-container">
      
-      <form>
+      <form method="get" action="/checkout">
         <input type="submit" class="btn checkout-btn" value="Checkout" name="">
       </form>
     
