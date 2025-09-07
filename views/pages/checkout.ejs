@@ -55,13 +55,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
+                <a class="nav-link" href="/">Home </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="products.html">Menu <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="products">Menu <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="about">About</a>
               </li>
             </ul>
             <div class="user_option">
@@ -154,7 +154,7 @@
     <section class="my-2 py-3 checkout">
 
         <div class="mx-auto container">
-            <form id="checkout-form" >
+            <form id="checkout-form" method="post" action="/place_order" >
                 <div class="form-group checkout-small-element">
                     <label for="">Name</label>
                     <input type="text" class="form-control" id="checkout-name" name="name" placeholder="name" required>
@@ -183,7 +183,7 @@
 
 
                 <div class="form-group checkout-btn-container">
-                    <p>Total amount: $199</p>
+                    <p>Total amount: $ <%= total %></p>
                     <input type="submit" class="btn" id="checkout-btn" name="checkout_btn" value="Checkout">
                 </div>
    
