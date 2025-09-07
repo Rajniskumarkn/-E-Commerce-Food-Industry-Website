@@ -118,6 +118,176 @@ app.post('/remove_product', function(req, res) {
     res.redirect('/cart');
 });
 
+app.post('/edit_product_quantity', function(req, res) {
+    var id = req.body.id;
+    var cart = req.session.cart;
 
+    if (cart) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id == id) {
+                if (req.body.increase_product_quantity_btn) {
+                    cart[i].quantity++;
+                } else if (req.body.decrease_product_quantity_btn) {
+                    if (cart[i].quantity > 1) {
+                        cart[i].quantity--;
+                    }
+                }
+                break;
+            }
+        }
+        calculateTotal(cart, req);
+    }
+
+    res.redirect('/cart');
+});
+
+
+app.get('/checkout',function(req,res){
+    var total = req.session.total
+    res.render('pages/checkout',{total:total})
+})
+
+app.post('/place_order',function(req,res){
+    var name = req.body.name;
+    var email = req.body.email;
+    var phone = req.body.phone;
+    var city = req.body.city;
+    var address = req.body.address;
+    var cost = req.session.total;
+    var status = "not paid";
+    var date = new Date();
+    var product_ids ="";
+    var id = Date.now();
+    req.session.order_id = id;
+
+
+    var con = mysql.createConnection({
+
+        host:"localhost",
+        user:"root",
+        password:"",
+        database:"node_project"
+    })
+
+        var cart = req.session.cart;
+        for(let i=0;i<cart;i++){
+            product_ids=product_ids + ',' +cart[i].id;
+        }
+
+    con.connect((err)=>{
+        if(err){
+            console.log(errr)
+        }else{
+            var quary = "INSERT INTO orders(id,cost,name,email,status,city,address,phone,date,product_ids) VALUES ?";
+            var values =[
+                [id,cost,name,email,status,city,address,phone,date,product_ids]
+            ];
+            con.query(quary,[values],(err,result)=>{
+
+                for(let i=0;i<cart.length;i++){
+                    var query = "INSERT INTO order_items (order_id,product_id,product_name,product_price,product_image,product_quantity,order_date values ?"; 
+                    var values= [
+                        [id,cart[i].id,cart[i].name,cart[i].price,cart[i].image,cart[i].quantity,new Date()]
+                    ];
+                    con.query(query,[values],(err,result)=>{})
+                }
+                res.redirect('/payment');
+            })
+        }
+    }) 
+})
+
+app.get('/payment',function(req,res){
+    var total = req.session.total
+     res.render('pages/payment',{total:total})
+})
+
+app.get("/verify_payment",function(req,res){
+    var transection_id = req.query.transection_id;
+    var order_id = req.session.order_id;
+
+
+    var con = mysql.createConnection({
+
+        host:"localhost",
+        user:"root",
+        password:"",
+        database:"node_project"
+    })
+
+
+con.connect((err) => {
+    if (err) {
+        console.log(err);
+    } else {
+        var query = "INSERT INTO payments(order_id, transection_id, date) VALUES ?";
+        var values = [
+            [order_id, transection_id, new Date()]
+        ];
+
+        con.query(query, [values], (err, result) => {
+           
+            con.query("UPDATE orders SET status='paid' WHERE id='"+order_id+"'", (err, result) => {})
+            res.redirect('/thank_you')
+
+
+        });
+    }
+});
+});
+
+// ✅ Thank you route
+app.get("/thank_you", function(req, res) {
+    var order_id = req.session.order_id;
+    var total = req.session.total; // ✅ make sure you saved this when creating the order
+
+    if (!order_id || !total) {
+        return res.send("Order ID or total amount not found!");
+    }
+
+    res.render("pages/thank_you", { order_id: order_id, total: total });
+});
+
+
+
+app.get('/single_product',function(req,res){
+
+    var id = req.query.id;
+
+      var con = mysql.createConnection({
+
+        host:"localhost",
+        user:"root",
+        password:"",
+        database:"node_project"
+    })
+    con.query("SELECT * FROM products WHERE id=' "+id+"' ",(err,result)=>{
+        res.render('pages/single_product',{result:result});
+    })
+
+});
+
+app.get('/products',function(req,res){
+
+    var con = mysql.createConnection({
+
+        host:"localhost",
+        user:"root",
+        password:"",
+        database:"node_project"
+    })
+    con.query("SELECT * FROM products",(err,result)=>{
+        res.render('pages/products',{result:result});
+    })
+
+})
+
+
+app.get('/about',function(req,res){
+    res.render('pages/about');
+
+
+    
+})
 
 
