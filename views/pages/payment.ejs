@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title>calmandcode</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+    integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+    crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    /* Payment section styling */
+    .payment-container {
+      text-align: center;
+      margin: 50px auto;
+      padding: 30px;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .payment-container h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .payment-container h2 {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #222;
+    }
+
+    #paypal-button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section starts -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              calmandcode
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="menu">Menu <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about">About</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a class="cart_link" href="#">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+              <form class="form-inline">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+              <a href="" class="order_online">
+                Order Online
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- payment section -->
+  <section class="food_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>Your Order</h2>
+      </div>
+
+      <div class="payment-container">
+        <h4>Payment</h4>
+        <h2>Total: $<%= total %></h2>
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  </section>
+  <!-- end payment section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>Contact Us</h4>
+            <div class="contact_link_box">
+              <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> <span>Location</span></a>
+              <a href=""><i class="fa fa-phone" aria-hidden="true"></i> <span>Call +01 1234567890</span></a>
+              <a href=""><i class="fa fa-envelope" aria-hidden="true"></i> <span>demo@gmail.com</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">calmandcode</a>
+            <p>
+              Necessary, making this the first true generator on the Internet.
+            </p>
+            <div class="footer_social">
+              <a href=""><i class="fa fa-facebook"></i></a>
+              <a href=""><i class="fa fa-twitter"></i></a>
+              <a href=""><i class="fa fa-linkedin"></i></a>
+              <a href=""><i class="fa fa-instagram"></i></a>
+              <a href=""><i class="fa fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>Opening Hours</h4>
+          <p>Everyday</p>
+          <p>10.00 Am - 10.00 Pm</p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>&copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/">Free Html Templates</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+
+
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AYsqAZaibE4akZOTTSq1bdDsuPWGDYlt7yBWKs1uuwgqjF3TnGCPg9L8BJcdK_AJFaMdEh53FkHizaCx&currency=USD"></script>
+  <script>
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: "<%= total %>" }
+          }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          alert("Payment successful! Thank you " + details.payer.name.given_name);
+          window.location.href = "/verify_payment?transection_id=" + data.orderID;
+        });
+      },
+      onError: function (err) {
+        console.error("PayPal Checkout Error:", err);
+        alert("Something went wrong with PayPal Checkout.");
+      }
+    }).render('#paypal-button-container');
+  </script>
+
+</body>
+
+</html>
